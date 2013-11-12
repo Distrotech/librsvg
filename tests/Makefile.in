@@ -51,8 +51,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-TESTS = rsvg-test$(EXEEXT) crash$(EXEEXT) dimensions$(EXEEXT) \
-	styles$(EXEEXT)
+TESTS = rsvg-test$(EXEEXT) crash$(EXEEXT) styles$(EXEEXT)
 EXTRA_PROGRAMS = $(am__EXEEXT_1)
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
@@ -76,19 +75,11 @@ libtest_utils_la_OBJECTS = $(am_libtest_utils_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
-am__EXEEXT_1 = rsvg-test$(EXEEXT) crash$(EXEEXT) dimensions$(EXEEXT) \
-	styles$(EXEEXT)
+am__EXEEXT_1 = rsvg-test$(EXEEXT) crash$(EXEEXT) styles$(EXEEXT)
 crash_SOURCES = crash.c
 crash_OBJECTS = crash.$(OBJEXT)
 crash_LDADD = $(LDADD)
 crash_DEPENDENCIES =  \
-	$(top_builddir)/librsvg-@RSVG_API_MAJOR_VERSION@.la \
-	$(top_builddir)/tests/libtest-utils.la \
-	$(top_builddir)/tests/pdiff/libpdiff.la $(am__DEPENDENCIES_1)
-dimensions_SOURCES = dimensions.c
-dimensions_OBJECTS = dimensions.$(OBJEXT)
-dimensions_LDADD = $(LDADD)
-dimensions_DEPENDENCIES =  \
 	$(top_builddir)/librsvg-@RSVG_API_MAJOR_VERSION@.la \
 	$(top_builddir)/tests/libtest-utils.la \
 	$(top_builddir)/tests/pdiff/libpdiff.la $(am__DEPENDENCIES_1)
@@ -132,10 +123,9 @@ am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN   " $@;
-SOURCES = $(libtest_utils_la_SOURCES) crash.c dimensions.c rsvg-test.c \
+SOURCES = $(libtest_utils_la_SOURCES) crash.c rsvg-test.c styles.c
+DIST_SOURCES = $(libtest_utils_la_SOURCES) crash.c rsvg-test.c \
 	styles.c
-DIST_SOURCES = $(libtest_utils_la_SOURCES) crash.c dimensions.c \
-	rsvg-test.c styles.c
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -226,9 +216,6 @@ GMODULE_LIBS = @GMODULE_LIBS@
 GREP = @GREP@
 GTHREAD_CFLAGS = @GTHREAD_CFLAGS@
 GTHREAD_LIBS = @GTHREAD_LIBS@
-GTK2_BINARY_VERSION = @GTK2_BINARY_VERSION@
-GTK2_CFLAGS = @GTK2_CFLAGS@
-GTK2_LIBS = @GTK2_LIBS@
 GTK3_BINARY_VERSION = @GTK3_BINARY_VERSION@
 GTK3_CFLAGS = @GTK3_CFLAGS@
 GTK3_LIBS = @GTK3_LIBS@
@@ -454,9 +441,6 @@ libtest-utils.la: $(libtest_utils_la_OBJECTS) $(libtest_utils_la_DEPENDENCIES) $
 crash$(EXEEXT): $(crash_OBJECTS) $(crash_DEPENDENCIES) $(EXTRA_crash_DEPENDENCIES) 
 	@rm -f crash$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(crash_OBJECTS) $(crash_LDADD) $(LIBS)
-dimensions$(EXEEXT): $(dimensions_OBJECTS) $(dimensions_DEPENDENCIES) $(EXTRA_dimensions_DEPENDENCIES) 
-	@rm -f dimensions$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(dimensions_OBJECTS) $(dimensions_LDADD) $(LIBS)
 rsvg-test$(EXEEXT): $(rsvg_test_OBJECTS) $(rsvg_test_DEPENDENCIES) $(EXTRA_rsvg_test_DEPENDENCIES) 
 	@rm -f rsvg-test$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(rsvg_test_OBJECTS) $(rsvg_test_LDADD) $(LIBS)
@@ -471,7 +455,6 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/crash.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dimensions.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rsvg-size-callback.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rsvg-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/styles.Po@am__quote@
